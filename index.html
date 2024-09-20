@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="img/logo180p.png" type="image/x-icon">
+
+</head>
+<body>
+    <nav>
+        <h1>Gerenciamento Biblioteca</h1>
+        <ul>
+            <li><a href="#emprestimos">Empréstimos</a></li>
+            <li><a href="#historico">Histórico</a></li>
+            <li><a href="#livros">Gerenciamento de Livros</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Seção de Empréstimos -->
+        <section id="emprestimos">
+            <h2>Registrar Empréstimo</h2>
+            <form id="formulario-emprestimo">
+                <div class="form-group">
+                    <label for="nome"><i class="fas fa-user"></i> Nome do Aluno</label>
+                    <input type="text" id="nome" placeholder="Digite o nome do aluno" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="turma"><i class="fas fa-users"></i> Turma</label>
+                    <input type="text" id="turma" placeholder="Digite a turma" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="livro"><i class="fas fa-book"></i> Nome do Livro</label>
+                    <input type="text" id="livro" placeholder="Digite o nome do livro" required>
+                </div>
+
+                <button type="submit"><i class="fas fa-plus"></i> Registrar Empréstimo</button>
+            </form>
+        </section>
+
+        <!-- Seção de Histórico de Empréstimos -->
+        <section id="historico">
+            <h2>Histórico de Empréstimos</h2>
+            <div class="search-group">
+                <input type="text" id="pesquisa-aluno" placeholder="Pesquisar Aluno...">
+            </div>
+            <h3>Empréstimos Pendentes</h3>
+            <ul id="lista-pendentes"></ul>
+
+            <h3>Livros Devolvidos</h3>
+            <ul id="lista-devolvidos"></ul>
+        </section>
+
+        <!-- Seção de Gerenciamento de Livros -->
+        <section id="livros">
+            <h2>Gerenciamento de Livros</h2>
+            <form id="formulario-livro">
+                <div class="form-group">
+                    <label for="numero-livro"><i class="fas fa-hashtag"></i> Número do Livro</label>
+                    <input type="number" id="numero-livro" placeholder="Número do livro" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nome-livro"><i class="fas fa-book"></i> Nome do Livro</label>
+                    <input type="text" id="nome-livro" placeholder="Nome do livro" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantidade-livro"><i class="fas fa-boxes"></i> Quantidade</label>
+                    <input type="number" id="quantidade-livro" placeholder="Quantidade disponível" required>
+                </div>
+
+                <button type="submit"><i class="fas fa-plus"></i> Adicionar Livro</button>
+            </form>
+
+            <div class="search-group">
+                <input type="text" id="pesquisa-livro" placeholder="Pesquisar Livro...">
+            </div>
+
+            <ul id="lista-livros"></ul>
+        </section>
+
+        <div class="botoes">
+            <button onclick="exportarDados()"><i class="fas fa-file-export"></i> Exportar JSON</button>
+            <label for="importar-json" class="upload-btn"><i class="fas fa-file-import"></i> Importar JSON</label>
+            <input type="file" id="importar-json" onchange="importarDados()" accept=".json" style="display:none;">
+        </div>
+    </div>
+
+    <!-- Notificação de Importação -->
+    <div id="notificacao" style="display: none; padding: 10px; background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; border-radius: 5px; margin-top: 10px;">
+        Importação concluída com sucesso!
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
